@@ -1,7 +1,6 @@
 import './App.css';
 import {Routes, Route} from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import Navbar from './components/Navbar';
 import CountriesList from './components/CountriesList';
 import CountryDetails from './components/CountryDetails';
@@ -26,8 +25,8 @@ function App() {
     <div className="App">
     <Navbar />
     <Routes>
-      <Route path='/countries' element={<CountriesList countries={allCountries} />} />
-      <Route path='/countries/:id' element={<CountryDetails countries={allCountries} />} />
+      <Route path='/' element={<CountriesList countries={allCountries} />} />
+      <Route path='/:id' element={<CountryDetails countries={allCountries} />} />
     </Routes>
     </div>
   );
