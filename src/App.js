@@ -2,8 +2,8 @@ import './App.css';
 import {Routes, Route} from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
-import CountriesList from './components/CountriesList';
-import CountryDetails from './components/CountryDetails';
+import CountriesList from './pages/CountriesList';
+import CountryDetails from './pages/CountryDetails';
 
 function App() {
   const [allCountries, setAllCountries] = useState([]);
