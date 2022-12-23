@@ -13,6 +13,7 @@ export default function CountryDetails({countries}) {
                 <div key={country._id}>
                     <h1>{country.name.common}</h1>
                     <img src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`} alt=''/>
+                    <p>Capital: {country.capital}</p>
                 </div>
             )
         })
@@ -20,3 +21,4 @@ export default function CountryDetails({countries}) {
     </div>
   )
 }
+

@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Search from '../components/Search';
 
@@ -27,21 +26,31 @@ export default function CountriesList({countries}) {
     });
 
   return (
+    
     <div>
-    <div className="row">
-    <div className="col-md-1"><Search setSearch={setSearch}/></div>
-    </div>
+      <Search setSearch={setSearch}/>
 
-      
-      <div className="row">
       {filteredCountries.map(country => (
-          <div className="col-md-8" key={country._id}>
-            <img src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`} alt=''/>
-            <br/>
-            <Link to={`/${country.alpha3Code}`} >{country.name.common}</Link>
+
+        <div key={country._id} className="card mb-3 col-4 mx-auto" style={{maxWidth: '540px'}}>
+          <div className="row g-0">
+           <div className="col-md-4">
+            <img className="img-fluid rounded-start" style={{marginTop: '20px'}} src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`} alt='' />
+           </div>
+           <div className="col-md-8">
+            <div className="card-body">
+              <h5 className="card-title">{country.name.common}</h5>
+              <p className="card-text">In order to see the country details, click the button below 👇</p>  
+              <a href={`/${country.alpha3Code}`} className="btn btn-primary">Go</a>
+            </div>
+           </div>
           </div>
+        </div>
       ))}
-      </div>
-    </div>
+      
+    </div>  
+
   )
 }
+
+    
