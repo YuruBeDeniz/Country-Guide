@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Search from '../components/Search';
 
-export default function CountriesList({countries}) {
+export default function CountriesList() {
     const [search, setSearch ] = useState('');
     const [countriesList, setCountriesList] = useState([])
 

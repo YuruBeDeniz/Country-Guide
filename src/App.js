@@ -4,17 +4,18 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import CountriesList from './pages/CountriesList';
 import CountryDetails from './pages/CountryDetails';
+import axios from 'axios';
 
 function App() {
   const [allCountries, setAllCountries] = useState([]);
 
   const getAllCountries = () => {
-    fetch('https://ih-countries-api.herokuapp.com/countries')
-        .then(response => response.json())
-        .then(data => {
-            setAllCountries(data.sort((a,b) => a.name.common.localeCompare(b.name.common)));
+    axios.get('https://ih-countries-api.herokuapp.com/countries')
+        .then(response => {
+            console.log(response.data)
+            setAllCountries(response.data);
         })
-        .catch(err => console.log(err))
+        .catch(err => console.log(err));
   };
 
   useEffect(() => {
@@ -25,7 +26,7 @@ function App() {
     <div className="App">
     <Navbar />
     <Routes>
-      <Route path='/' element={<CountriesList countries={allCountries} />} />
+      <Route path='/' element={<CountriesList />} />
       <Route path='/:id' element={<CountryDetails countries={allCountries} />} />
     </Routes>
     </div>

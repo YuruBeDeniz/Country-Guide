@@ -9,7 +9,7 @@ export default function Search({setSearch}) {
           type='search'
           onChange={e => setSearch(e.target.value)}
           placeholder='search for a country..'
-          style={{marginLeft: '15px', marginBottom:'15px'}} />
+          style={{margin:'15px'}} />
     </div>
   )
 }
